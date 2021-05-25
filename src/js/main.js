@@ -191,15 +191,25 @@ personne.seDeplacer(maison);
 
 // >>1. Vérifier chaque ingrédient dans le bol et le couper seulement s'il est entier ! Pour ça on utilise la méthode couper de personnage
 
+
+// coupe
 personne.couper(oignon,couteau);
 personne.couper(fromage,couteau)
-personne.couper(oeuf,couteau)
 
 
+//casse
+personne.couper(oeuf,couteau);
 
-console.log(oignon.etat);
-console.log(fromage.etat);
-console.log(oeuf.etat);
+//verse
+personne.couper(epice,couteau);
+
+
+// verification de l'état
+// Coupés
+// console.log(oignon.etat);
+// console.log(fromage.etat);
+// // cassé
+// console.log(oeuf.etat);
 
 
 
@@ -214,20 +224,23 @@ console.log(oeuf.etat);
 // >>1. vider le contenu du bol dans la poele. Il ne doit plus rien avoir dans le bol et y avoir juste l'omelette pas cuite.
 
 // Je verse mes ingrédients dans la poele 
-console.log(bol.contenu);
+// console.log(bol.contenu[0]);
+// console.log(bol.contenu[1]);
+// console.log(bol.contenu[2]);
+// console.log(bol.contenu[3]);
+
 poele.contenu.push(bol.contenu);
 
 
 // et je les retirent de mon bol
 
 bol.contenu.splice(bol.contenu.splice(bol.contenu.length));
-console.log(bol.contenu);
+// console.log(bol.contenu);
 
 personne.melanger();
 
 // >>1. Afficher un message final, notre omelette est cuite :)
 
-// poele.cuir();
-// console.log(poele.contenu);
+
 
 poele.cuire();

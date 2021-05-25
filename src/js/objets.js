@@ -45,19 +45,26 @@ let personne = {
           if (ingredients.etat == "entier" && ingredients.nom == "oignon") {
                outil.action = "coupé"
                ingredients.etat = "coupé"
-               console.log(`${this.nom} à ${couteau.action} avec son ${couteau.nom} l'aliment trop gros`);
-          } else {
-               console.log("L'aliment n'a pas besoin d'être coupé");
+               console.log(`${this.nom} à ${couteau.action} avec son ${couteau.nom} l'${ingredients.nom}`);
+          } else if (ingredients.etat == "entier" && ingredients.nom == "fromage") {
+               outil.action = "coupé"
+               ingredients.etat = "coupé"
+               console.log(`${this.nom} à ${couteau.action} avec son ${couteau.nom} le ${ingredients.nom}`);
+          }else if (ingredients.nom == "oeuf"){
+               ingredients.etat = "cassé"
+               console.log(`${this.nom} casse la coquille de l'${ingredients.nom}`);
+          }else{
+               console.log(`${this.nom} verse les ${ingredients.nom}s`);
           }
      },
      melanger(omelette) {
-          console.log(`${this.nom} mélange les ingrédients préalablement coupés et moulus`);
+          console.log(`${this.nom} mélange les ingrédients préalablement coupés, brisés et moulus`);
           bol.contenu = omelette;
 
      }
 
 }
-
+// console.log("L'aliment n'a pas besoin d'être coupé");
 let maison = {
      nom: "maison",
      personnes: [],
