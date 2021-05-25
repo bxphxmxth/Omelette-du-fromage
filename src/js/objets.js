@@ -2,8 +2,16 @@ let personne = {
      nom: "Naz",
      lieu: [],
      argent: 70,
+     panier: [],
      mainDroite(){
-
+          
+          if (epicerie.paniers.nbrPanier > 0){
+               let panier = 0;
+               panier += 1
+               epicerie.paniers.nbrPanier -= 1;
+          }else{
+               ("Il n'y a plus de paniers, va au Aldi")
+          }
      },
      mainGauche(){
 
@@ -11,7 +19,8 @@ let personne = {
      seDeplacer(lieu){
           
           epicerie.personnes.push(this.nom);
-          
+          this.lieu.splice(this.lieu.indexOf(this),1);
+
           // depart.personnes.splice(depart.personnes.indexOf(this),1);
 
 

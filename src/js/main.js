@@ -66,6 +66,11 @@ console.log(personne.lieu); // naz n'est pas dans le lieu départ
 personne.lieu.push(personne.nom) // je la push dans le lieu de depart
 console.log(personne.lieu); // Elle est dans le lieu de depart
 
+
+
+// naz a été splice du lieu de depart
+console.log(personne.lieu);
+
 console.log(`${personne.nom} est à la ${maison.nom} et se prépare à sortir de chez elle`);
 
 // >>1. Avec l'objet personnage, utiliser la method seDeplacer et de passer en paramètre l'objet maison
@@ -76,11 +81,34 @@ console.log(epicerie.personnes);
 
 // >>1. Afficher un message tel que :
 // >>1. console.log(personnage.nom + " est actuellement à la " + personnage.lieu);
+
+console.log(`${personne.nom} est actuellement à l'${epicerie.nom}.`);
+
 // >>1. Pour aller à l'épicerie acheter les ingrédients pour l'omelette, je répète la première étape en changeant le parametre de la method seDeplacer par l'epicerie
+
+
 // >>1. Mon personnage prend un des paniers dans l'épicerie (il récupère le panier dans les objets de l'épicerie et le met dans sa main droite.
+
+personne.mainDroite()
+console.log(personne.mainDroite.panier);
+//déduire 1 des 5 paniers du magasin 
+
+
 // >>1. Il doit y avoir un objet dans la main droite de personnage et un panier en moins. Vérifier avec des console.log() ensuite afficher un message du type : 
+
+
 // >>1. console.log(`${personnage.nom} a pris un ${personnage.mainDroite.type}`);
+
+console.log(`${personne.nom} a prit un panier avec sa main droite.`);
+
 // >>1. Je créer une boucle qui va prendre chaque élément (ingrédient) du contenu de l'épicerie (1 à 1) et en faire une COPIE dans le panier du personnage
+
+
+epicerie.stock.forEach(element =>{
+     personne.panier.push(element);
+     console.log(element);
+});
+
 // >>1. Afficher un message à chaque ingrédient pris
 // >>1. Payer chaque ingrédient récupéré dans le panier. Avec une boucle aussi, on va les passer 1 à 1 dans la fonction payerArticle()
 // >>1. Afficher un message de ce qu'il reste d'argent sur le personnage.
