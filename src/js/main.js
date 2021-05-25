@@ -9,20 +9,20 @@
 // >>- couper(ingredient, outil)
 
 import {personne,maison,couteau,epicerie,poele,bol} from "./objets.js"
-console.log(personne);
+// console.log(personne);
 
 
 // #  
 
 // >### Créer un lieu "maison" (un objet) avec comme propriété "nom: 'maison'" et "personnes = []" => qui sera un tableau de personnes présentes dans la maison :
-console.log(maison);
+// console.log(maison);
 
 // #  
 
 // >- Créer un outil (couteau) pour découper les ingrédients achetés
 // >- propriétés : nom et action.
 // >- action a comme valeur l'état "coupé" (qui sera mis aux légumes lorsqu'ils seront coupés avec le méthode de "personne".)
-console.log(couteau);
+// console.log(couteau);
 // #  
 
 // >- Créer des produits (ingrédients) à mettre dans le magasin qui serviront à créer l'omelette (oignon, oeuf, epice, fromage, ...);
@@ -33,58 +33,57 @@ let oeuf = new Ingredients("oeuf","entier",3);
 let epice = new Ingredients("epice","moulu",5);
 let fromage = new Ingredients("fromage","entier",10);
 
-console.log(fromage);
+// console.log(fromage);
 // #  
 
 // >- Créer un lieu "epicerie" qui a comme propriétés :
 // >- nom, personnes = [], paniers (plusieurs objets paniers avec le type de panier et le contenu du panier),
 // >- Les "ingrédients" créés juste au dessus contenus dans un tableau.
-console.log(epicerie);
+// console.log(epicerie);
 epicerie.stock.push(oignon);
 epicerie.stock.push(oeuf);
 epicerie.stock.push(epice);
 epicerie.stock.push(fromage);
-console.log(epicerie.stock);
+// console.log(epicerie.stock);
 // #  
 
 // >- Créer un poele avec un tableau comme contenu. Et avec une méthode cuir() qui, après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
-console.log(poele);
+// console.log(poele);
 
 // #  
 
 // >- Créer un bol avec un tableau comme contenu
 // >- ajouter une méthode melanger(nomMelange) qui va créer un nouvel objet "newMelange" avec comme nom la variable nomMelange passé en paramètre et avec 'pas cuit' en etat. cette méthode remplacera this.contenu par [l'obj newMelange]
-console.log(bol);
-
 // #  
 
 // ># DEBUT DE L'OMELETTE
 // >>1. Pour dire que le personnage est à la maison :
 
 // personne.this.lieu.push(personne)
-console.log(personne.lieu); // naz n'est pas dans le lieu départ
+// console.log(personne.lieu); // naz n'est pas dans le lieu départ
 personne.lieu.push(personne.nom) // je la push dans le lieu de depart
-console.log(personne.lieu); // Elle est dans le lieu de depart
+// console.log(personne.lieu); // Elle est dans le lieu de depart
 
 
 
 // naz a été splice du lieu de depart
-console.log(personne.lieu);
+// console.log(personne.lieu);
 
 console.log(`${personne.nom} est à la ${maison.nom} et se prépare à sortir de chez elle`);
 
 // >>1. Avec l'objet personnage, utiliser la method seDeplacer et de passer en paramètre l'objet maison
 
 personne.seDeplacer(epicerie);
-console.log(epicerie.personnes);
+// console.log(epicerie.personnes);
 
 
 // >>1. Afficher un message tel que :
 // >>1. console.log(personnage.nom + " est actuellement à la " + personnage.lieu);
 
-console.log(`${personne.nom} est actuellement à l'${epicerie.nom}.`);
 
 // >>1. Pour aller à l'épicerie acheter les ingrédients pour l'omelette, je répète la première étape en changeant le parametre de la method seDeplacer par l'epicerie
+console.log(`${personne.nom} est actuellement à l'${epicerie.nom}.`);
+
 
 
 // >>1. Mon personnage prend un des paniers dans l'épicerie (il récupère le panier dans les objets de l'épicerie et le met dans sa main droite.
@@ -129,11 +128,11 @@ console.log(personne.mainDroite);
 
 epicerie.stock.forEach(element =>{
      console.log(`${personne.nom} a prit ${element.nom}`);
-      personne.panier.push(element);
+      personne.mainGauche.push(element);
      // console.log(element);
 });
 
-console.log(personne.panier);
+console.log(personne.mainGauche);
 
 // >>1. Payer chaque ingrédient récupéré dans le panier. Avec une boucle aussi, on va les passer 1 à 1 dans la fonction payerArticle()
 
@@ -148,8 +147,8 @@ personne.seDeplacer(maison);
 
 // >>1. mettre chaque ingrédient dans le bol (1 à 1 donc avec une boucle)
 
-console.log(personne.panier);
-personne.panier.forEach(element => {
+console.log(personne.mainGauche);
+personne.mainGauche.forEach(element => {
 
      bol.contenu.push(element);
      console.log(`${personne.nom} a mit ${element.nom} dans le bol` );
@@ -158,12 +157,12 @@ personne.panier.forEach(element => {
      
 })
 
-personne.panier.forEach(element => {
+personne.mainGauche.forEach(element => {
 
-     personne.panier.splice(element)
+     personne.mainGauche.splice(element)
      console.log(`${personne.nom} a tout enlevé du panier qu'elle a volé` );
 
-console.log(personne.panier);
+console.log(personne.mainGauche);
 
     
      
@@ -175,7 +174,7 @@ console.log(personne.panier);
 
 //Juste deux elements sont retiré à vérifier ? whyy
 
-console.log(bol.contenu);
+console.log(bol.contenu[1].nom);
 // >>1. Vérifier que les ingrédients ne se trouvent plus dans le panier (oups ! on a oublié de le rapporter x)
 console.log(personne.panier);
 // >>1. Afficher un petit message de chaque ingrédient qu'on met dans le bol.
@@ -235,3 +234,7 @@ personne.melanger();
 
 // >>1. Afficher un message final, notre omelette est cuite :)
 
+// poele.cuir();
+// console.log(poele.contenu);
+
+poele.cuire();
