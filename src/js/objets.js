@@ -4,7 +4,7 @@ let personne = {
      argent: 70,
      panier: [],
      mainDroite(){
-          
+          let monPanier = 0;
           if (epicerie.paniers.nbrPanier > 0){
                let panier = 0;
                panier += 1
@@ -17,15 +17,34 @@ let personne = {
 
      },
      seDeplacer(lieu){
+
+          lieu.personnes.push(this.nom);
+          this.lieu.splice(this.lieu.indexOf(this,1));
+          console.log(`${this.nom} est actuellement à ${lieu.nom}`);
           
-          epicerie.personnes.push(this.nom);
-          this.lieu.splice(this.lieu.indexOf(this),1);
+          // epicerie.personnes.push(this.nom);
 
-          // depart.personnes.splice(depart.personnes.indexOf(this),1);
 
+          // this.lieu.splice(this.lieu.indexOf(this),1);
+
+          
 
      },
      payerArticle(article){
+
+          personne.panier.forEach(element =>{
+               console.log(`${personne.nom} a payé ${element.nom} `);
+               
+
+          })
+          personne.argent -= 1;
+          personne.argent -= 3;
+          personne.argent -= 5;
+          personne.argent -= 10;
+
+
+
+          console.log(`Il lui reste ${personne.argent}€`);
 
      },
      couper(ingredients,outil){

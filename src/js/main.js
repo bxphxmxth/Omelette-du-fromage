@@ -75,7 +75,7 @@ console.log(`${personne.nom} est à la ${maison.nom} et se prépare à sortir de
 
 // >>1. Avec l'objet personnage, utiliser la method seDeplacer et de passer en paramètre l'objet maison
 
-personne.seDeplacer();
+personne.seDeplacer(epicerie);
 console.log(epicerie.personnes);
 
 
@@ -102,22 +102,63 @@ console.log(personne.mainDroite.panier);
 console.log(`${personne.nom} a prit un panier avec sa main droite.`);
 
 // >>1. Je créer une boucle qui va prendre chaque élément (ingrédient) du contenu de l'épicerie (1 à 1) et en faire une COPIE dans le panier du personnage
+// >>1. Afficher un message à chaque ingrédient pris
 
 
 epicerie.stock.forEach(element =>{
-     personne.panier.push(element);
+     console.log(`${personne.nom} a prit ${element.nom}`);
+      personne.panier.push(element);
      console.log(element);
 });
 
-// >>1. Afficher un message à chaque ingrédient pris
+console.log(personne.panier);
+
 // >>1. Payer chaque ingrédient récupéré dans le panier. Avec une boucle aussi, on va les passer 1 à 1 dans la fonction payerArticle()
+
 // >>1. Afficher un message de ce qu'il reste d'argent sur le personnage.
+personne.payerArticle();
+
+
 // >>1. rentrer à la maison (comme ça on pourra cuisiner)
+personne.seDeplacer(maison);
+
+//arranger methode se déplacer pour le retour
+
 // >>1. mettre chaque ingrédient dans le bol (1 à 1 donc avec une boucle)
+
+console.log(personne.panier);
+personne.panier.forEach(element => {
+
+     bol.contenu.push(element);
+     console.log(`${personne.nom} a mit ${element.nom} dans le bol` );
+     
+})
+
+personne.panier.forEach(element => {
+     personne.panier.splice(personne.panier.indexOf(1),4)
+     console.log(`${personne.nom} a retiré ${element.nom} du panier qu'elle a volé`);
+
+})
+
+//Juste deux elements sont retiré à vérifier ? whyy
+
+console.log(bol.contenu);
 // >>1. Vérifier que les ingrédients ne se trouvent plus dans le panier (oups ! on a oublié de le rapporter x)
+console.log(personne.panier);
 // >>1. Afficher un petit message de chaque ingrédient qu'on met dans le bol.
+
+
+
+
 // >>1. Retourner à l'épicerie pour rapporter le panier. (donc seDeplacer puis enlever le panier de la main droite et le remetre dans les paniers de l'épicerie.)
+
+personne.seDeplacer(epicerie);
+console.log(epicerie.paniers.nbrPanier); //nbr panier = 4
+epicerie.paniers.nbrPanier +=1;
+console.log(epicerie.paniers.nbrPanier);
 // >>1. Afficher un petit message
+
+console.log(`${personne.nom} a rendu le panier volé. Il y a de nouveau ${epicerie.paniers.nbrPanier} paniers dans l'épicerie`);
 // >>1. Retourner à la maison pour continuer l'omelette
 // >>1. Afficher un petit message
 // >>1. Vérifier chaque ingrédient dans le bol et le couper seulement s'il est entier ! Pour ça on utilise la méthode couper de personnage
