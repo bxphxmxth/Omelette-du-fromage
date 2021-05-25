@@ -8,52 +8,43 @@
 // >>- payerArticle(article)
 // >>- couper(ingredient, outil)
 
-let Personne {
-     nom: "Naz",
-     lieu: "maison",
-     argent: 70,
-     mainDroite (){
-
-     },
-     mainGauche(){
-
-     },
-     seDeplacer(maison,epicerie){
-
-     },
-     payerArticle(article){
-
-     },
-     couper(ingredients,outil){
-
-     }
-
-}
-
+import {personne,maison,couteau,epicerie} from "./objets.js"
+console.log(personne);
 
 
 // #  
 
 // >### Créer un lieu "maison" (un objet) avec comme propriété "nom: 'maison'" et "personnes = []" => qui sera un tableau de personnes présentes dans la maison :
-
+console.log(maison);
 
 // #  
 
 // >- Créer un outil (couteau) pour découper les ingrédients achetés
 // >- propriétés : nom et action.
 // >- action a comme valeur l'état "coupé" (qui sera mis aux légumes lorsqu'ils seront coupés avec le méthode de "personne".)
-
+console.log(couteau);
 // #  
 
 // >- Créer des produits (ingrédients) à mettre dans le magasin qui serviront à créer l'omelette (oignon, oeuf, epice, fromage, ...);
 // >- attributs : nom, etats ( entier,coupé, moulu), prix
+import {Ingredients} from "./methodes.js";
+let oignon = new Ingredients("oignon","entier",1);
+let oeuf = new Ingredients("oeuf","entier",3);
+let epice = new Ingredients("epice","moulu",5);
+let fromage = new Ingredients("fromage","entier",10);
 
+console.log(fromage);
 // #  
 
 // >- Créer un lieu "epicerie" qui a comme propriétés :
 // >- nom, personnes = [], paniers (plusieurs objets paniers avec le type de panier et le contenu du panier),
 // >- Les "ingrédients" créés juste au dessus contenus dans un tableau.
-
+console.log(epicerie);
+epicerie.stock.push(oignon);
+epicerie.stock.push(oeuf);
+epicerie.stock.push(epice);
+epicerie.stock.push(fromage);
+console.log(epicerie.stock);
 // #  
 
 // >- Créer un poele avec un tableau comme contenu. Et avec une méthode cuir() qui, après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
