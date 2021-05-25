@@ -130,7 +130,7 @@ console.log(personne.mainDroite);
 epicerie.stock.forEach(element =>{
      console.log(`${personne.nom} a prit ${element.nom}`);
       personne.panier.push(element);
-     console.log(element);
+     // console.log(element);
 });
 
 console.log(personne.panier);

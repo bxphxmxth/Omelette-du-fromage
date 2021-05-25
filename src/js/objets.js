@@ -46,7 +46,7 @@ let personne = {
           if(ingredients.etat == "entier" ){
                outil.action = "coupé"
                ingredients.etat = "coupé"
-               console.log(`${this.nom} à ${couteau.action} avec son ${couteau.nom}`);
+               console.log(`${this.nom} à ${couteau.action} avec son ${couteau.nom} l'aliment trop gros`);
           }else{
                console.log("L'aliment n'a pas besoin d'être coupé");
           }
@@ -84,6 +84,8 @@ let epicerie = {
 let poele = {
      contenu: [],
      cuir(){
+          setTimeout(()=> {poele.contenu[0].etat = "cuit"}, 4000)
+
           //après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
      }
 }
