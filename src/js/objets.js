@@ -3,29 +3,23 @@ let personne = {
      lieu: [],
      argent: 70,
      panier: [],
-     mainDroite(){
-          let monPanier = 0;
-          if (epicerie.paniers.nbrPanier > 0){
-               let panier = 0;
-               panier += 1
-               epicerie.paniers.nbrPanier -= 1;
-          }else{
-               ("Il n'y a plus de paniers, va au Aldi")
-          }
-     },
-     mainGauche(){
+     mainDroite: [],
 
-     },
+          // let monPanier = 0;
+          // if (epicerie.paniers.nbrPanier > 0){
+          //      let panier = 0;
+          //      panier += 1
+          //      epicerie.paniers.nbrPanier -= 1;
+         
+     
+     mainGauche:[],
      seDeplacer(lieu){
 
           lieu.personnes.push(this.nom);
           this.lieu.splice(this.lieu.indexOf(this,1));
           console.log(`${this.nom} est actuellement à ${lieu.nom}`);
           
-          // epicerie.personnes.push(this.nom);
-
-
-          // this.lieu.splice(this.lieu.indexOf(this),1);
+          
 
           
 
@@ -48,8 +42,20 @@ let personne = {
 
      },
      couper(ingredients,outil){
-
+         
+          if(ingredients.etat == "entier" ){
+               outil.action = "coupé"
+               ingredients.etat = "coupé"
+               console.log(`${this.nom} à ${couteau.action} avec son ${couteau.nom}`);
+          }else{
+               console.log("L'aliment n'a pas besoin d'être coupé");
+          }
      },
+     melanger(omelette){
+          console.log(`${this.nom} mélange les ingrédients préalablement coupés et moulus`);
+          bol.contenu = omelette;
+
+     }
 
 }
 
@@ -76,7 +82,7 @@ let epicerie = {
 }
 
 let poele = {
-     contenu: "vide",
+     contenu: [],
      cuir(){
           //après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
      }
@@ -89,7 +95,7 @@ let bol = {
           newMelange = "pas cuit";
           this.contenu= newMelange;
           
-     }
+     },
 }
 
 export { personne,maison,couteau,epicerie,poele,bol };

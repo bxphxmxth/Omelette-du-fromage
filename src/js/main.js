@@ -89,8 +89,28 @@ console.log(`${personne.nom} est actuellement à l'${epicerie.nom}.`);
 
 // >>1. Mon personnage prend un des paniers dans l'épicerie (il récupère le panier dans les objets de l'épicerie et le met dans sa main droite.
 
-personne.mainDroite()
-console.log(personne.mainDroite.panier);
+
+
+let prendre = () =>{
+
+     if(epicerie.paniers.nbrPanier > 0){
+
+     epicerie.paniers.nbrPanier -= 4;
+
+      personne.mainDroite.push(epicerie.paniers);
+
+
+     }else{
+          alert("Il n'y a plus de paniers, va au Aldi")
+     }
+
+
+}
+prendre();
+
+console.log(personne.mainDroite);
+console.log(epicerie.paniers.nbrPanier);
+
 //déduire 1 des 5 paniers du magasin 
 
 
@@ -99,7 +119,9 @@ console.log(personne.mainDroite.panier);
 
 // >>1. console.log(`${personnage.nom} a pris un ${personnage.mainDroite.type}`);
 
-console.log(`${personne.nom} a prit un panier avec sa main droite.`);
+console.log(`${personne.nom} a prit un ${personne.mainDroite} avec sa main droite.`);
+console.log(personne.mainDroite);
+
 
 // >>1. Je créer une boucle qui va prendre chaque élément (ingrédient) du contenu de l'épicerie (1 à 1) et en faire une COPIE dans le panier du personnage
 // >>1. Afficher un message à chaque ingrédient pris
@@ -122,7 +144,7 @@ personne.payerArticle();
 // >>1. rentrer à la maison (comme ça on pourra cuisiner)
 personne.seDeplacer(maison);
 
-//arranger methode se déplacer pour le retour
+
 
 // >>1. mettre chaque ingrédient dans le bol (1 à 1 donc avec une boucle)
 
@@ -131,14 +153,25 @@ personne.panier.forEach(element => {
 
      bol.contenu.push(element);
      console.log(`${personne.nom} a mit ${element.nom} dans le bol` );
+    
+     
      
 })
 
 personne.panier.forEach(element => {
-     personne.panier.splice(personne.panier.indexOf(1),4)
-     console.log(`${personne.nom} a retiré ${element.nom} du panier qu'elle a volé`);
 
+     personne.panier.splice(element)
+     console.log(`${personne.nom} a tout enlevé du panier qu'elle a volé` );
+
+console.log(personne.panier);
+
+    
+     
+     
 })
+
+ 
+
 
 //Juste deux elements sont retiré à vérifier ? whyy
 
@@ -148,21 +181,57 @@ console.log(personne.panier);
 // >>1. Afficher un petit message de chaque ingrédient qu'on met dans le bol.
 
 
-
-
 // >>1. Retourner à l'épicerie pour rapporter le panier. (donc seDeplacer puis enlever le panier de la main droite et le remetre dans les paniers de l'épicerie.)
 
 personne.seDeplacer(epicerie);
-console.log(epicerie.paniers.nbrPanier); //nbr panier = 4
-epicerie.paniers.nbrPanier +=1;
-console.log(epicerie.paniers.nbrPanier);
+// console.log(epicerie.paniers.nbrPanier); //nbr panier = 4
+// epicerie.paniers.nbrPanier +=1;
+// console.log(epicerie.paniers.nbrPanier);
 // >>1. Afficher un petit message
 
 console.log(`${personne.nom} a rendu le panier volé. Il y a de nouveau ${epicerie.paniers.nbrPanier} paniers dans l'épicerie`);
+
 // >>1. Retourner à la maison pour continuer l'omelette
 // >>1. Afficher un petit message
+
+personne.seDeplacer(maison);
+
 // >>1. Vérifier chaque ingrédient dans le bol et le couper seulement s'il est entier ! Pour ça on utilise la méthode couper de personnage
+
+personne.couper(oignon,couteau);
+
+personne.couper(fromage,couteau)
+personne.couper(oeuf,couteau)
+
+
+
+console.log(oignon.etat);
+console.log(fromage.etat);
+console.log(oeuf.etat);
+
+
+
+
+
 // >>1. Mélanger le contenu du bol avec la méthode melanger. on va nommer ce mélange une 'omelette' (à passer en param).
+
+
+
 // >>1. Afficher un message avec le nouveau mélange
+
 // >>1. vider le contenu du bol dans la poele. Il ne doit plus rien avoir dans le bol et y avoir juste l'omelette pas cuite.
+
+// Je verse mes ingrédients dans la poele 
+console.log(bol.contenu);
+poele.contenu.push(bol.contenu);
+
+
+// et je les retirent de mon bol
+
+bol.contenu.splice(bol.contenu.splice(bol.contenu.length));
+console.log(bol.contenu);
+
+personne.melanger();
+
 // >>1. Afficher un message final, notre omelette est cuite :)
+
