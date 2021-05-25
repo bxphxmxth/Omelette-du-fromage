@@ -94,9 +94,9 @@ let prendre = () =>{
 
      if(epicerie.paniers.nbrPanier > 0){
 
-     epicerie.paniers.nbrPanier -= 4;
+     epicerie.paniers.nbrPanier -= 1;
 
-      personne.mainDroite.push(epicerie.paniers);
+      personne.mainDroite.push(epicerie.paniers.nom);
 
 
      }else{
@@ -107,10 +107,10 @@ let prendre = () =>{
 }
 prendre();
 
-console.log(personne.mainDroite);
-console.log(epicerie.paniers.nbrPanier);
+// console.log(personne.mainDroite);
+// console.log(epicerie.paniers.nbrPanier);
 
-//déduire 1 des 5 paniers du magasin 
+//déduire 1 des 4 paniers du magasin 
 
 
 // >>1. Il doit y avoir un objet dans la main droite de personnage et un panier en moins. Vérifier avec des console.log() ensuite afficher un message du type : 
@@ -119,7 +119,7 @@ console.log(epicerie.paniers.nbrPanier);
 // >>1. console.log(`${personnage.nom} a pris un ${personnage.mainDroite.type}`);
 
 console.log(`${personne.nom} a prit un ${personne.mainDroite} avec sa main droite.`);
-console.log(personne.mainDroite);
+// console.log(personne.mainDroite);
 
 
 // >>1. Je créer une boucle qui va prendre chaque élément (ingrédient) du contenu de l'épicerie (1 à 1) et en faire une COPIE dans le panier du personnage
@@ -127,12 +127,12 @@ console.log(personne.mainDroite);
 
 
 epicerie.stock.forEach(element =>{
-     console.log(`${personne.nom} a prit ${element.nom}`);
+     console.log(`${personne.nom} a prit ${element.nom} et l'a mise dans son ${epicerie.paniers.nom}`);
       personne.mainGauche.push(element);
      // console.log(element);
 });
 
-console.log(personne.mainGauche);
+// console.log(personne.mainGauche);
 
 // >>1. Payer chaque ingrédient récupéré dans le panier. Avec une boucle aussi, on va les passer 1 à 1 dans la fonction payerArticle()
 
@@ -147,22 +147,20 @@ personne.seDeplacer(maison);
 
 // >>1. mettre chaque ingrédient dans le bol (1 à 1 donc avec une boucle)
 
-console.log(personne.mainGauche);
+// console.log(personne.mainGauche);
 personne.mainGauche.forEach(element => {
 
      bol.contenu.push(element);
      console.log(`${personne.nom} a mit ${element.nom} dans le bol` );
     
      
-     
 })
-
 personne.mainGauche.forEach(element => {
 
      personne.mainGauche.splice(element)
-     console.log(`${personne.nom} a tout enlevé du panier qu'elle a volé` );
+     console.log(`${personne.nom} a tout enlevé du panier qu'elle a volé mais qu'elle va aller rendre.` );
 
-console.log(personne.mainGauche);
+// console.log(personne.mainGauche);
 
     
      
@@ -170,25 +168,21 @@ console.log(personne.mainGauche);
 })
 
  
-
-
-//Juste deux elements sont retiré à vérifier ? whyy
-
-console.log(bol.contenu[1].nom);
+// console.log(bol.contenu[1].nom);
 // >>1. Vérifier que les ingrédients ne se trouvent plus dans le panier (oups ! on a oublié de le rapporter x)
-console.log(personne.panier);
+
+// console.log(personne.mainGauche);
 // >>1. Afficher un petit message de chaque ingrédient qu'on met dans le bol.
 
 
 // >>1. Retourner à l'épicerie pour rapporter le panier. (donc seDeplacer puis enlever le panier de la main droite et le remetre dans les paniers de l'épicerie.)
 
 personne.seDeplacer(epicerie);
-// console.log(epicerie.paniers.nbrPanier); //nbr panier = 4
-// epicerie.paniers.nbrPanier +=1;
-// console.log(epicerie.paniers.nbrPanier);
+
+
 // >>1. Afficher un petit message
 
-console.log(`${personne.nom} a rendu le panier volé. Il y a de nouveau ${epicerie.paniers.nbrPanier} paniers dans l'épicerie`);
+console.log(`${personne.nom} a rendu le panier volé. Il y a de nouveau ${epicerie.paniers.nbrPanier + personne.mainDroite.length} paniers dans l'épicerie`);
 
 // >>1. Retourner à la maison pour continuer l'omelette
 // >>1. Afficher un petit message
@@ -198,7 +192,6 @@ personne.seDeplacer(maison);
 // >>1. Vérifier chaque ingrédient dans le bol et le couper seulement s'il est entier ! Pour ça on utilise la méthode couper de personnage
 
 personne.couper(oignon,couteau);
-
 personne.couper(fromage,couteau)
 personne.couper(oeuf,couteau)
 

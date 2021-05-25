@@ -42,7 +42,7 @@ let personne = {
      },
      couper(ingredients, outil) {
 
-          if (ingredients.etat == "entier") {
+          if (ingredients.etat == "entier" && ingredients.nom == "oignon") {
                outil.action = "coupé"
                ingredients.etat = "coupé"
                console.log(`${this.nom} à ${couteau.action} avec son ${couteau.nom} l'aliment trop gros`);
@@ -74,8 +74,9 @@ let epicerie = {
      nom: "épicerie",
      personnes: [],
      paniers: {
-          nbrPanier: 5,
+          nbrPanier: 3,
           contenu: [],
+          nom: "panier",
      },
      stock: [],
 }
