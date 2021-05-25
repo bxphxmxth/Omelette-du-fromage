@@ -1,6 +1,6 @@
 let personne = {
      nom: "Naz",
-     lieu: "maison",
+     lieu: [],
      argent: 70,
      mainDroite(){
 
@@ -8,7 +8,12 @@ let personne = {
      mainGauche(){
 
      },
-     seDeplacer(maison,epicerie){
+     seDeplacer(lieu){
+          
+          epicerie.personnes.push(this.nom);
+          
+          // depart.personnes.splice(depart.personnes.indexOf(this),1);
+
 
      },
      payerArticle(article){
@@ -49,4 +54,14 @@ let poele = {
      }
 }
 
-export { personne,maison,couteau,epicerie };
+let bol = {
+     contenu : [],
+     nomMelange(nomMelange,etat){
+          nomMelange = newMelange;
+          newMelange = "pas cuit";
+          this.contenu= newMelange;
+          
+     }
+}
+
+export { personne,maison,couteau,epicerie,poele,bol };

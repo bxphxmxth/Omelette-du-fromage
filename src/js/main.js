@@ -8,7 +8,7 @@
 // >>- payerArticle(article)
 // >>- couper(ingredient, outil)
 
-import {personne,maison,couteau,epicerie} from "./objets.js"
+import {personne,maison,couteau,epicerie,poele,bol} from "./objets.js"
 console.log(personne);
 
 
@@ -48,17 +48,32 @@ console.log(epicerie.stock);
 // #  
 
 // >- Créer un poele avec un tableau comme contenu. Et avec une méthode cuir() qui, après 4 secondes, met l'état 'cuit' à this.contenu[0]. On peut faire ça avec la fonction setTimeout(()=> {}, 4000)
+console.log(poele);
 
 // #  
 
 // >- Créer un bol avec un tableau comme contenu
 // >- ajouter une méthode melanger(nomMelange) qui va créer un nouvel objet "newMelange" avec comme nom la variable nomMelange passé en paramètre et avec 'pas cuit' en etat. cette méthode remplacera this.contenu par [l'obj newMelange]
+console.log(bol);
 
 // #  
 
 // ># DEBUT DE L'OMELETTE
 // >>1. Pour dire que le personnage est à la maison :
+
+// personne.this.lieu.push(personne)
+console.log(personne.lieu); // naz n'est pas dans le lieu départ
+personne.lieu.push(personne.nom) // je la push dans le lieu de depart
+console.log(personne.lieu); // Elle est dans le lieu de depart
+
+console.log(`${personne.nom} est à la ${maison.nom} et se prépare à sortir de chez elle`);
+
 // >>1. Avec l'objet personnage, utiliser la method seDeplacer et de passer en paramètre l'objet maison
+
+personne.seDeplacer();
+console.log(epicerie.personnes);
+
+
 // >>1. Afficher un message tel que :
 // >>1. console.log(personnage.nom + " est actuellement à la " + personnage.lieu);
 // >>1. Pour aller à l'épicerie acheter les ingrédients pour l'omelette, je répète la première étape en changeant le parametre de la method seDeplacer par l'epicerie
