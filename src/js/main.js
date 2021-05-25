@@ -127,7 +127,7 @@ console.log(`${personne.nom} a prit un ${personne.mainDroite} avec sa main droit
 
 
 epicerie.stock.forEach(element =>{
-     console.log(`${personne.nom} a prit ${element.nom} et l'a mise dans son ${epicerie.paniers.nom}`);
+     console.log(`${personne.nom} a prit ${element.nom} et l'a mit dans son ${epicerie.paniers.nom}`);
       personne.mainGauche.push(element);
      // console.log(element);
 });

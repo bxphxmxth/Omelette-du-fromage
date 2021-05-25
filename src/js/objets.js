@@ -35,9 +35,11 @@ let personne = {
           personne.argent -= 5;
           personne.argent -= 10;
 
-
+          epicerie.caisse += 19;
 
           console.log(`Il lui reste ${personne.argent}€`);
+          console.log(`${epicerie.prenom} est heureux car il a maintenant ${epicerie.caisse}€ dans sa caisse !`);
+
 
      },
      couper(ingredients, outil) {
@@ -78,6 +80,8 @@ let couteau = {
 }
 
 let epicerie = {
+     prenom: "Mahmoud",
+     caisse: 500,
      nom: "épicerie",
      personnes: [],
      paniers: {
